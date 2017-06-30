@@ -1,0 +1,541 @@
+르네상스 테크놀로지
+
+
+머신러닝이 수익률에 기여를 할 것인가
+
+
+예측보다 헤징이 중요하다
+미국은 알고리즘 트레이딩이 일반화 되어 있어서 패턴이 이미 나와있음
+
+주식 시장 상황에 상관없이 헤징을 통해 수익을 내는 것이 목표
+
+
+Python
+라이브러리 -
+
+R 공부해라 - 통계적 검증이 필요함 페이퍼테스트 - 라이브 테스트
+
+파이썬에서 R 연동 가능
+
+
+라이브러리
+numpy
+scipy
+matropl
+
+
+IPython
+
+쥬피터 - 아나콘다
+
+환경설정
+OS : linux  ->> virtualbox, vm 을 이용 - 우분투 64bit Desktop 버전 (15.04 / 15.10)
+Python 2.X
+Disk :100 mb
+memory :16GB
+IDE : sublime Text 추천
+
+pycharm - https://www.jetbrains.com/pycharm
+slide:notebook
+
+1. OS  아나콘다
+2. 파이썬 익히기
+3.책보고 오기
+
+
+anaconda
+
+
+https://www.continuum.io/downloads
+
+Anaconda for Linux 64 bit
+
+
+--------------------------
+
+모듈 불러오기 - 필요로 하는 함수만 풀러오기
+import math
+ #from math import cos. pi
+
+x - math.cos(2 * math.pi)
+print x
+
+variable
+x = y =1
+
+type
+
+
+//   floor division
+** power
+
+
+control flows
+ if 문
+
+for 문에서 enumerate
+function
+
+클래스의 프로퍼티는 보통 __Init__ 안에 있음 (스코프 유의 self.x)
+
+
+모듈 파일 임포트
+
+
+%%file mymodule.py
+
+
+https://wikidocs.net/book/1
+파이썬 코딩의 기술 - 길벗
+
+프로그래밍이 보인다 파이썬 입문
+
+
+
+
+xubuntu.org 설치
+
+
+numpy 라이브러리 - 공부많이 해라
+
+
+import numpy
+매트릭스 계산
+인덱싱 m[1,;] 1row 모든값
+
+
+numpy.mean(v1)
+numpy.std(v1), numpy.var(v1)
+
+numpy : 범용적 과학용
+pandas : numpy 를 금융시계열 용으로 만듬, R에서 파생됨
+
+
+2차원배열
+function,data preprocessing
+
+data structure -> series (1차원배열) = numpy array
+
+dataframe (2차원배열)
+
+loc
+iloc
+slice
+unique   df('job').unique()
+
+axes.plot(x,y,'r')  차트를 그려라
+
+matplotlib - 차트
+
+
+
+python for data analysis - 한빛 출판사
+python for statistics
+
+
+담주 - 개발환경 구축,
+----------------------------------------------
+
+2016.08.22
+
+EDA Explanatory Data Analysis -> for Alpha signal
+
+Signal - 매수/매도 타이밍을 알려주는 것
+alpha signal > 시장수익률, alpha model
+delta signal = 시장수익률
+
+
+volume, max, open price
+news, future-option
+
+상관도 없는 구간 - 경계 - 상관도 있는 구간
+
+EDA(=data source) 가 중요하다, 통계적 지식이 요구된다
+EDA 에 따라  short, long term
+
+Verification
+backtesting = 과거데이터로 확인, overfitting 여부 판단
+
+
+descriptive statistics - 변수 관계에 초점 (알고리즘 트레이딩)
+
+inferential statistics - 원래 데이터의 모습에 초점 (머신러닝)
+
+Quantitative - Continuous
+             , Discrete
+
+Qualitative - Discrete - Ordinal(평점),
+                        Nominal(성별, 라벨, 명목상의~, 그룹핑)
+
+indipendent variable = 인풋
+
+dependent variable = 아웃풋
+
+
+데이터의 특성을 가장 잘 나타내는 것은?
+mean - good measure of central tendency
+
+Histogram - 데이터의 전체적인 모습을 시각적으로 확인할 수 있는 유용한 도구
+
+
+Variance, std-> 데이터의 outlier 정도를 판단 ->  주식의 velocity
+
+
+
+normal distribution = gaussian distribution
+
+
+matplot 히스토그램 그리기 - 데이터가 평균 근처에 있는가
+
+어떤 특성을 가진 종목을 선택할 것인가
+
+
+평균에 회기하려는 성질 -> normal distribution
+central tendency
+
+
+BrainTeaser
+Posco 주가 데이터 - sampling bias 때문에 오류가 발생할 수 밖에 없다
+
+
+CLT (central limit theorem)
+N=1  -> N=4 -> N=10
+샘플링을 많이 할수록 정규 분포를 따른다
+
+
+f(x) = ax + b
+a, b ?
+
+a 는 정규분포(n=2)를 따른다고 해석함
+이때 a의 표준편차를 줄일 수 있는 방법을 찾는 것
+
+
+probability function type
+PMF, pDF
+
+보통 normal distribution - thin tale - outlier 확률이 낮음
+금융에서는 cauchy distribution - fat tale
+
+numpy 에서 PDF 함수를 구해준다?
+
+
+-------------------------------------------------
+
+8월 30일
+
+알고리즘 트레이딩의 궁극적 목표 - 매수 매도 시기를 알아내 수익실현
+
+
+Theory Driven vs Data Driven
+Data 가 쉬운데
+Theory 를 선호하는 이유는?
+
+Data 는
+결국 Theory 를 포함하고
+짧은 시각(HTF)을 가질 수 밖에 없다
+
+수정을 할 수 없다, Theory 는 수정이 가능
+
+두개의 비중을 잘 활용해야 함
+
+2시그마 인베스트먼트 - 헤지펀드 11위
+
+켈리's 포뮬러(저위험)
+에드워드 소프 - beat the dealer
+
+동전던지기(고위험)
+마틴 게일 -> 존 메이어 (트레이딩 고수)
+
+
+beautifulsoup4 = 파싱 오픈 라이브러리
+
+펀드 정보
+http://dis.kofia.or.kr/
+
+펀드의 구성내역 -> 장이 안좋아도 구성내역을 만족해야 한다
+장이 안좋아도 펀드매니저는 주식을 사야 한다
+
+
+스크래핑을 자주하면 블로킹을 당한다
+1. request interval 을 랜덤하게 해야함
+2. 많이 당겨가면 블로킹됨 - 시간을 두고
+3. 파일형태로 저장하는 것이 좋다
+4. 헤더 정보를 넣어서 request 하는 게 좋다
+
+일단 저장해 놓고 불러오는 것이 안전하고 빠르다
+
+세션 하이재킹도 가능
+
+
+숙제 - 펀드 기본정보 다운받고 저장하는 코드
+
+
+옵션가 , 호가 -HTS API를 활용해야 함
+
+파일 - 단순, 대용량일때
+DBMS - InfluxDB -> 수치데이터 전용, 텍스트x - aggrigation
+     - MongoDB -> 하둡보다 편하고 빠르다, 추천
+
+
+--------------------------------------------
+9 월 6일
+
+Time Series = Time dependent +  Trends
+
+trend = longterm
+seasonality trend = short term
+
+random data
+random variable -> statistical Distribution (움직이는 범위는 정해져있다)
+
+주가 자체를 예측하는 방법은 자주 쓰지 않는다
+distribution 을 활용하는 방법을 씀
+
+
+알고리즘 트레이딩에서 거래에 사용할 모델을 개발하는 과정
+
+
+
+주가 or 변동성 그래프 모사, 개발  -> Fitting
+
+
+핵심 개념 3가지
+1. covariance (공분산)
+주가 A,B 의 주가는 모른다.
+하지만 방향성은 알수 있는가?
+
+2. correlation
+연관이 있다면 얼마나 있는가
+
+3. Autocorrelation
+어떤 신호의 시간이동된 자기자신과의 상관성
+1에 가까울 수록 강함
+0에 가까울 수록 약함
+
+xt = xt-1 + a
+xt+1 = xt + a
+
+Lag = 현재 시점 기준으로 얼마만큼 뒤에서 가져오는가
+
+
+
+현재값이 전 값에 영향을 받는가
+no 라면 동전 던지기 = 도박
+yes 라면 주식
+
+Time series  = Deterministic Trends + Seasonal Variation + Random
+
+
+Stationaity 시간이 지나도 변하지 않는 성질
+ ex) Mean, Variance
+
+
+White Noise (=random)
+곧 normal distribution
+
+residual = Observed - Predicted value
+(= error)
+
+IID (Independent and identically distribute)
+독립적이고 정규분포이다 = random이다
+
+A 와 B 가 각각 correlation  관계일 경우
+At - Bt
+At+1 - Bt+1
+
+residual 이 Autocorrelation 이 없다, correlation이 없다고 하면
+residual 이 Random 이다
+
+
+Correlogram
+
+confidence zone
+blue line 은 2 시그마 내부를 나타냄
+파란선 위쪽은 2.5 %(양쪽따로) 를 나타냄 (2시그마 밖)
+
+Lag =6, 15, 18 이 파란선을 돌파함
+
+95% 이상 돌파하는 것을 보면 => correlation 이 존재한다, random이 아니다
+
+IID 는 confidence zone을 넘지 않는다
+
+
+
+Correlogram 이 conf zone 안에서 있다면
+모델이 상관관계를 설명하기 어렵다 = 모델이 도박이 되어감
+
+random process 는 모델을 만들 수 없다
+
+
+
+random walk -> Auto regressive model
+
+random walk 에서 xt-1 에 계수가 추가됨
+
+AR model 을 찾으려면 Stationarity 를 가져야 함
+
+
+MA 와 AR은 텀의 차이가 있다
+AR 은 과거 값이 현재 값에 영향을 미침
+MA 는 과거 whiste noise 가 현재값에 영향을 미침
+
+
+
+
+ARIMA
+mean reversion + shock 의 누적값,
+그동안의 변화 누적값에 대해 모델링하겠다
+
+Difference Clustering -> 그동안의 값에 대해
+
+
+seasonal ARIMA 모델 ->더 정확
+
+
+ARIMA model 은 non-stationary proc
+ess 를 statioinary process로
+변환시킬 수 있기 때문에 활용도가 높다
+
+
+가정은 constant VAriance
+하지만 실제 주식시장은 constant 하지 않다
+
+왜 주가의 std를 구하지 않고 price change 의 std를 구하는가
+normalization, scale을 맞추기 위해서이다
+
+
+
+volatility 를 설명하기 위해 ARCH, GARCH 가 나옴
+
+x 는 이전의 변동성의 합이다
+
+GARCH 는 ARCH + MA  이다
+
+white noise 개념을 추가함
+주로 RISK 때문에 사용함
+
+---------------------------------------------
+
+9월 20 일
+
+
+ARMA 모델
+
+AR 은
+gaussian distribution 을 가정하고
+
+MA 는 normal distribution 을 가정하면
+값을 구할수 있다
+
+값을 찾을 수는 없으므로 추정하기로 함
+
+10 ~ 30 사이에서 분포를 추정
+
+
+
+1.1 frequentist
+1.2 bayesian 정확하게 알 수 없고 확률 분포만 알 수 있다
+
+
+paramiter optimization을 잘 하는 것이 중요
+
+Likelihood  L(x)
+
+
+
+AIC 는 L(x) 에서 패널티를 줌
+AIC는 작을 수록 좋음 (우리가 답을 찾을 때 몇개가 가장 효율적인지 판단)
+
+
+BIC (Bayesian Information Criterion)
+역시 모델 선택 방법, BIC 가 작을수록 좋은 모델
+AIC 의 k 에 더 큰 패널티를 부여함
+
+
+Summary 에서
+likelihood = 모든 값의 곱
+
+
+
+
+
+일부 구간 데이터로 피팅 후, 나머지 데이터로 검증
+
+데이터 수가 많으면 최적의 해를 찾을 확률이 낮아짐
+
+finding parameter
+적은데이터로 해결할 수 있는가 ->되도록 p,q 가 작은것으로
+
+
+TS Model을 쓰려면
+
+1.trend 가 있음을 가정
+ARMA 미래 추정 t1, t2 에 대해서 평가할때
+t1 이 trend 에 가깝게 진행됨
+
+이를 적극 활용하면 고저점 파악에도 활용가능
+
+
+알고리즘 트레이딩에서 가장 중요한것
+알파모델 구현? no
+
+1.내가가진 도구를 가지고 주식을 찾는다
+2.주식에 내가가진 도구를 맞춘다
+
+stationarity 를 가지는 주식에 도구를 맞춘다
+
+통계에서는 보통  null hypothesis 가 틀렸음을 증명하여
+alternative hypothesis 를 증명함
+
+
+Hurst exponent Test 확산 테스트
+t 가 작을수록 stationarity 를 가진다
+
+
+퀴즈 테스트 통과 000220, 000430
+
+
+Auto correlation 어려움 > stationarity test 쉬움
+
+trending vs mean reverting 수익률
+장기적으로 trending 전략이 더 높다
+
+--------------------------------------------------
+
+
+Zipline
+
+데이터 준비 -> 전략을 코드로 구현 - 백테스트 실시, 결과분석
+
+결과는 pandas DF 로 나옴
+
+mean Reversion method
+
+1. 얼마만큼 남들보다 정확한 mean을 설정할 수 있을까
+2. 어떻게 variance를 설정하는가 (보통 정규분포, T-분포, Prob density function)
+
+3. time window를 설정하는 것이 어렵다 (5일, 30일)
+
+
+V1 전략 - 이동 평균과 이동평균 표준편차 값을 이용해 포지션을 결정
+현재값 - 이동평균 차이를 보고 표준편차와 비교하여 매수/매도 판단
+
+V2 = V1 + stationay Test
+
+window_size 에 half-life 값을 사용한다
+
+V3 = V2 에서 Standard Deviation 대신 GARCH모델을 사용한다(Volartility, 변동성 예측)
+
+GARCH model
+
+V4 = V3 에서 GARCH 대신 ARIMA model 을 사용
+
+ARIMA model -> linear model 에 기반해있다
+Daily return 의 흐름을 모델링 한다
+
+AR + MA + Integ
+현시점 대입시, 내일의 결과값을 말해준다
+보통 1일 앞만 예측함
+
+
+V4 -> 내일 주가와 -
